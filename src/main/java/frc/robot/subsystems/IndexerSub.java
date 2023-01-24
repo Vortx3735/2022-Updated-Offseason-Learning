@@ -4,21 +4,22 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+//import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+//import com.revrobotics.CANSparkMax.IdleMode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IndexerSub extends SubsystemBase {
-  TalonSRX IndexerTalon;
-
+  CANSparkMax IndexerNeo;
   /** Creates a new ExampleSubsystem. */
   public IndexerSub(int ID) {
-    IndexerTalon = new TalonSRX(ID);
+    IndexerNeo = new CANSparkMax(ID, MotorType.kBrushless);
   }
 
   public void move(double percentSpeed){
-    IndexerTalon.set(TalonSRXControlMode.PercentOutput, percentSpeed);
+    IndexerNeo.set(percentSpeed);
   }
 
 

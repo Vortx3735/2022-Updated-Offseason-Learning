@@ -6,16 +6,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.IndexerMotor;
+import frc.robot.commands.IndexerCom;
 import frc.robot.subsystems.IndexerSub;
-import frc.robot.commands.ShooterMotor;
-import frc.robot.subsystems.ShooterSub;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.VorTXController;
-import frc.robot.subsystems.AgitatorSub;
-import frc.robot.commands.AgitatorMotor;
 
 import edu.wpi.first.wpilibj2.command.RunCommand;
 /**
@@ -30,34 +26,19 @@ public class RobotContainer {
   public static VorTXController con1 = new VorTXController(0);
   public static JoystickButton circleButton = con1.circle;
   public static JoystickButton triangleButton = con1.triangle;
-  public static IndexerSub indexersub = new IndexerSub(4);
-  public static IndexerMotor indexer = new IndexerMotor(indexersub);
-  public static ShooterSub shootersub = new ShooterSub(5, 6);
-  public static ShooterMotor shooter = new ShooterMotor(shootersub);
-  public static AgitatorSub agitatorsub = new AgitatorSub(7);
-  public static AgitatorMotor agitator = new AgitatorMotor(agitatorsub);
+  public static IndexerSub indexersub = new IndexerSub(3);
+  public static IndexerCom indexer = new IndexerCom(indexersub);
+
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    shootersub.setDefaultCommand(
-      new RunCommand(
-        shooter::stopMotor,
-        shootersub
-      )
-    );
 
     indexersub.setDefaultCommand(
       new RunCommand(
         indexer::stopMotor,
         indexersub
-      )
-    );
-    agitatorsub.setDefaultCommand(
-      new RunCommand(
-        agitator::stopMotor,
-        agitatorsub
       )
     );
     
@@ -76,17 +57,7 @@ public class RobotContainer {
         new RunCommand(
           indexer::startMotor,
           indexersub   
-        ),
-        new RunCommand(
-          shooter::startMotor,
-          shootersub
         )
-      )
-    );
-    triangleButton.whileTrue(
-      new RunCommand(
-        agitator::startMotor,
-        agitatorsub
       )
     );
 

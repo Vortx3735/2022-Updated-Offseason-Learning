@@ -5,14 +5,13 @@
 package frc.robot.commands;
 
 
-import frc.robot.Robot;
 import frc.robot.subsystems.IndexerSub;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
 
 /** An example command that uses an example subsystem. */
-public class IndexerMotor extends CommandBase {
+public class IndexerCom extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final IndexerSub index;
 
@@ -21,7 +20,7 @@ public class IndexerMotor extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public IndexerMotor(IndexerSub inputIndex) {
+  public IndexerCom(IndexerSub inputIndex) {
     index = inputIndex;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(index);
@@ -45,11 +44,7 @@ public class IndexerMotor extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (Robot.con1.circle.getAsBoolean()) {
-      startMotor();
-    } else {
-      stopMotor();
-    }
+  
   }
 
   // Called once the command ends or is interrupted.

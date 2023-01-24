@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.IndexerSub;
 import frc.robot.subsystems.VorTXController;
-import frc.robot.commands.IndexerMotor;
+import frc.robot.commands.IndexerCom;
 
 
 /**
@@ -26,8 +26,8 @@ public class Robot extends TimedRobot {
 
   public static VorTXController con1 = new VorTXController(0);
   public static JoystickButton indexButton = con1.circle;
-  public static IndexerSub indexersub = new IndexerSub(4);
-  public static IndexerMotor indexer = new IndexerMotor(indexersub);
+  public static IndexerSub indexersub = new IndexerSub(3);
+  public static IndexerCom indexer = new IndexerCom(indexersub);
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
