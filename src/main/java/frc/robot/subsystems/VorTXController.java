@@ -19,10 +19,10 @@ public class VorTXController extends PS4Controller {
 	public VorTXController(int port) {
 		super(port);
 		
-
+		
+		square = new JoystickButton(this, 1);
 		cross = new JoystickButton(this, 2);
 		circle = new JoystickButton(this, 3);
-		square = new JoystickButton(this, 1);
 		triangle = new JoystickButton(this, 4);
 		l2 = new JoystickButton(this, 7);
 		r2 = new JoystickButton(this, 8);

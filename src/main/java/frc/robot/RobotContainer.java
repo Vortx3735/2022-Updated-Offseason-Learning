@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.IndexerCom;
 import frc.robot.subsystems.IndexerSub;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.VorTXController;
 
@@ -53,18 +52,16 @@ public class RobotContainer {
   private void configureButtonBindings() {
     // index and shoot
     circleButton.whileTrue(
-      new ParallelCommandGroup(
         new RunCommand(
           indexer::startMotor,
           indexersub   
         )
-      )
-    );
+      );
 
 
   } 
 
-  // command groiup
+  // command group
   //  c1
   //  c2
 
